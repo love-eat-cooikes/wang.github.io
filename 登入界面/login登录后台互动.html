@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙星传说 欢迎您</title>
+    <link href="CSS/登录login.css" rel="stylesheet" type="text/css" />
+    <link href="JS/登录login.js" rel="stylesheet" type="text/js" />
+    <script src="JS/登录login.js"></script>
+</head>
+<body>
+
+    <audio src="BGM/帝国进行曲.mp3" loop="loop" controls="controls" autoplay="autoplay"></audio>
+    <div id="LOGO">
+        <img src="images/logo图标.png" width="400px" height="400px">
+    </div>
+    
+    <div id="login">
+        <div class="logo">龙星国际影城</div>
+        <form action="../index.html" method="post">
+            <div>
+                <label>用户名：</label>
+                <input type="text" placeholder="请输入用户名" id="uname" name="userName" value=""/>
+            </div>
+            <div>
+                <label>密&nbsp;&nbsp;&nbsp;码：</label>
+                <input type="password" placeholder="请输入密码" id="pwd" name="password" value=""/>
+            </div>
+            <div id="loginBtn">
+                <input type="submit" id="but" value="登录" onclick="return checkuser()"/> 
+            </div>
+        </form>
+
+        <p>还不是我们的会员？<a href="快速购票.html" target="_blank">立即注册</a></p>
+    </div>
+</body>
+
+<script type="text/javascript"> 
+    function getValue(id) { 
+        return document.getElementById(id).value; 
+        // 查找元素
+    } 
+    function checkuser() { 
+        if(getValue('uname') == "爱吃饼干" && getValue('pwd') == "123456789") { 
+            return true; 
+        }else { 
+            alert("登录名或密码错误！")
+            // 警告框
+            return false; 
+        } 
+    } 
+</script> 
+
+</html>

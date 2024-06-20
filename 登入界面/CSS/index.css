@@ -1,0 +1,302 @@
+ul{
+    list-style: none;
+}
+img {
+    transition: transform 0.3s;
+}
+img :hover {
+    transform: scale(1.1);
+}
+a{
+    text-decoration: none;
+    color:#666666;
+}
+
+/*顶部*/
+#header{
+    width: 100%;
+    height: 30px;
+    background-color: #000000;
+    border: 1px solid #f9ff46;
+}
+#header .main1{
+    width: 990px;     /*设置宽度为990px*/
+    margin: auto auto;   /*设置该区域居中显示*/
+}
+.main1 .info{
+    float: right;     /*设置内容区居右显示*/
+}
+.info a{
+    color: #666666;
+    font-size: 12px;
+    vertical-align: middle;
+}
+.info span{
+    font-size: 12px;
+    color: #666666;
+    vertical-align: middle;
+}
+
+#header .sina{
+
+    display: inline-block;
+    background-image: url(../images/新浪图标.jpg); 
+}
+#header .tqq{
+    width:24px;
+    height: 28px;
+    display: inline-block;
+    background-image: url(../images/QQ图标.jpg);
+    margin:0 10px;
+}
+/*logo部分*/
+#logo{
+    width: 1500px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: #333;
+}
+#logo .logo_star{
+    width:150px;
+    height:100px;
+    display:inline-block;
+
+}
+/*导航*/
+#nav{
+    width: 100%;
+    height: 42px;
+    background-color: gray;
+}
+#nav a{
+    display: inline-block;
+    font-size: 14px;
+    height: 100%;
+    color: rgb(0, 0, 0);
+    padding: 0 30px;
+}
+/*使内容居中显示*/
+.daohang{
+    width:90%;
+    height: 42px;
+    margin: 0 auto;
+}
+.daohang ul{
+    width: 80%;
+}
+.daohang ul li{
+    float: left;
+    height: 42px;
+    line-height: 42px;
+}
+.daohang a.first-of-type{
+    background-color: red;
+}
+a:hover{
+    background-color: red;
+}
+/*搜索框*/
+.search{
+    float: right;
+    width:20%;
+    position: relative;
+}
+.search input[type=text]{
+    width: 160px;
+    height: 42px;
+    padding: 5px;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+.search input[type="btn"] {
+    width: 60px;
+    height: 42px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+/*主体部分*/
+.main{
+    width:1200px;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+
+/*快速购票*/
+.ticket{
+    display: flex;
+    height:60px;
+    margin-top: 15px;
+    margin-bottom: 26px;
+    background-color:#000000;
+}
+.ticket li{
+    display: flex;
+    padding: 8px;
+    position: relative;
+    align-items: center;
+    left: 0;
+    top: 0;
+}
+.ticket .select-style{
+    width: 250px;
+    height: 55px;
+    text-align: center;
+    font-size: 14px;
+    color: #696969;
+}
+.ticket li a{
+    width: 102px;
+    height: 40px;
+    text-align: center;
+    line-height: 36px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #e60020;
+}
+
+/*左侧内容区*/
+.section{
+    float:left;
+    width:720px;
+    margin: 0px 20px;
+    margin-left: 50px;
+}
+/*标题*/
+.section .title{
+    width:720px;
+    height:35px;
+    border-bottom:3px solid #f0343c;
+    margin-bottom:20px;
+}
+.title span{
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    width: 116px;
+    height: 36px;
+    line-height: 36px;
+    color: #FFFFFF;
+    background-color: #99999932;
+}
+.title .bgRed{
+    background-color: red;
+}
+.title a{
+    height: 36px;
+    margin: auto;
+    color: #666666;
+    font-size: 12px;
+    float: right;
+    padding-left: 10px ;
+}   
+/*影片详情区——正在热映*/
+.section ul{
+    height: 240px;
+    display: flex;
+    flex-wrap: wrap;
+}
+/*影片li标签样式*/
+.section p{
+    font-size: 14px;
+    color: #666666;
+    line-height: 30px;
+}
+/*影片片名*/
+.section li{
+    width: 23%;
+    height: 200px;
+    cursor: pointer;
+}
+.section img{
+    width: 100%;
+    height: 200px;
+}
+/*右侧边栏*/
+.side{
+    margin-left: 65%;
+    height: 1050px;
+    width: 360px;
+    background-color: #4e4e4e;
+    padding: 0 10px 20px 10px; 
+    font-size: 12px;
+    color:#666666; 
+}
+/*标题样式*/
+.topic span{
+    display: inline-block;
+    border-bottom: 3px solid #f0343c;
+    font-size: 15px;
+    color: #f0343c;
+    height: 35px; 
+}
+.topic li{
+    display: inline;
+    width: 72px;
+}
+.side .detail{
+    padding-left: 10px;
+    width: 100%;
+    margin-top: 20px;
+    border-bottom: 1px dotted #686868;
+    margin-bottom: 20px;
+}
+.detail li{
+    display: inline-block;
+}
+.side a{
+    display: inline-block;
+    height: 27px;
+    margin: auto auto;
+    padding-left: 5px;
+}
+.side .topic{
+    margin-top: -20px;
+    padding-top: 20px;
+}
+/*底部*/
+#footer{
+    background-color: #969696;
+    width: 100%;
+    margin-top: 30px;
+}
+#help{
+    display: flex;
+    
+    background-color: #dcdcdc;
+    width: 990px;
+    margin: 0 auto;
+}
+#help ul{
+    padding-left: 17px;
+    width: 120px;
+    font-size: 12px;
+    color: #666666;
+    margin-right: 110px;
+}
+#help li{
+    height: 20px;
+    margin: auto auto;
+    line-height: 20px;
+}
+#help .title{
+    height: 45px;
+    font-size: 16px;
+    color: #333;
+    padding-left: 45px;
+}
+.bottom{
+    height: 93px;
+    width: 100%;
+    font-size: 12px;
+    color: #333;
+    background-image: url('bottombg.jpg'); background-repeat: repeat-x; 
+    background-color: #808080;
+}
+.bottom p{
+    margin: auto auto;
+    text-align: center;
+}
+.bottom a{
+    color: #666666;
+}

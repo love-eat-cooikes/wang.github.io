@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙星传说国际影</title>
+    <link rel="stylesheet" href="css/student.css">
+</head>
+<body>
+    <!--顶部-->
+    <div id="header">
+        <div class="main1">
+            <div class="info">
+                <a href="#" class="sina" title="sina" alt="新浪"></a>
+                <a href="#" class="tqq" title="tqq" alt="qq"></a>
+                <a href="login.html" target="_blank">登入|</a>
+                <a href="sign.html" target="_blank">注册|</a>
+                <span>全国服务热线:888-888888</span>
+            </div>
+        </div>	
+    </div>
+
+
+    <div id="logo">
+        <div class="main2">
+            <div class="info2">
+                <a href="#" class="logo1" title="logo图片" alt="新浪"></a>
+                <a href="#" class="logo2" title="logo图片" alt="新浪"></a>
+            </div>
+        </div>
+    </div>
+
+    <!--导航-->
+    <div id="nav">
+        <div class="daohang">
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">影片</a></li>
+                <li><a href="#">影城</a></li>
+                <li><a href="#">购票</a></li>
+                <li><a href="#">影城活动</a></li>
+                <li><a href="#">会员服务</a></li>
+                <li><a href="#">顾客互动</a></li>
+            </ul>
+            <div class="search">
+                <input type="text"  placeholder="搜索影片" name="search"/>
+                <input type="button" name="btn" value="搜索" />
+            </div>
+        </div>
+    </div>
+
+    <!--主体部分-->
+    <div class="main">
+
+        <!--banner轮播图-->
+        <div id="box">
+        <!-- 放图片-->
+        <div id="lunboimg">
+            <a id="a1" href="#">
+                <!-- 仅放一张图片，通过JS来改变图片地址即可-->
+                <img id="img1" src="1.jpg" />
+            </a>
+        </div>
+        <!-- 放底部圆点-->
+        <div id="selector">
+            <span id=""></span>
+            <span id=""></span>
+            <span id=""></span>
+            <span id=""></span>
+        </div>
+        <!-- 左箭头-->
+        <div id="left">&lt;</div>
+        <!-- 右箭头-->
+        <div id="right">&gt;</div>
+        </div>
+
+        <script type="text/javascript">
+        let img = document.querySelector('img');
+        let span = document.querySelectorAll('span');
+        let left = document.getElementById('left');
+        let right = document.getElementById('right');
+        let index = 0;
+        let timer;
+        function show(){
+            img.src = `${index}.jpg`;
+        }
+
+        function autoPlay() {
+            timer = setInterval(function() {
+                if (index == span.length) {
+                    index = 0;
+                }
+                show();
+                index++;
+            }, 2500);
+        }
+        autoPlay();
+        
+        function ctrlPlay(){
+            for(let i = 0; i < span.length; i++){
+                span[i].onclick = function(){
+                    index = i;
+                    show();
+                }
+            }
+        }
+        ctrlPlay();
+        function clickPlay(){
+            left.onclick = function(){
+                if(index <= 0){
+                    index = span.length - 1;
+                }else{
+                    index --;
+                }
+                show();
+            }
+            right.onclick = function(){
+                if(index == span.length){
+                    index = 0;
+                }
+                index ++;
+                show();
+            }
+        }
+        clickPlay();
+        function eventList(){
+            for(let i = 0; i < span.length; i++){
+                span[i].addEventListener('mouseenter',function(){
+                    clearInterval(timer);
+                    index = i;
+                    show();
+                },false);
+                span[i].addEventListener('mousemove',function(){
+                    clearInterval(timer);
+                    autoPlay();
+                },false);
+                
+            }
+        }
+        eventList();
+        </script>
+    
+        <!--快速购票-->
+        <ul class="ticket">
+            <li>
+                <img src="./jpg/ico_quick.jpg" alt="快速购票">
+            </li>
+            <li>
+                <select>
+                <option>选择影院</option>
+                    <option value="fime">大大大影院</option>
+                    <option value="fime">小小小影院</option>
+                    <option value="fime">无名的人影院</option>
+                    <option value="fime">雾里影院</option>
+                </select>
+            </li>
+            <li>
+                <select>
+                <option>选择电影</option>
+                    <option value="movie1">沦陷</option>
+                    <option value="movie1">妈妈的话</option>
+                    <option value="movie1">绿色</option>
+                    <option value="movie1">离别开出花</option>
+                    <option value="movie1">我用什么把你留住</option>
+                    <option value="movie1">我不是你的宋东野</option>
+                </select>
+            </li>
+            <li>
+                <select>
+                <option>选择时间</option>
+                    <option value="time1">早上</option>
+                    <option value="time1">中午</option>
+                    <option value="time1">晚上</option>
+                    <option value="time1">下午</option>
+                    <option value="time1">傍晚</option>
+                    <option value="time1">晚上</option>
+                    <option value="time1">深夜</option>
+                </select>
+            </li>
+            <li>
+                <select>
+                    <option>&nbsp;&nbsp;&nbsp;选择场次</option>
+                        <option value="changci1">1号厅</option>
+                        <option value="changci1">2号厅</option>
+                        <option value="changci1">3号厅</option>
+                        <option value="changci1">4号厅</option>
+                        <option value="changci1">5号厅</option>
+                        <option value="changci1">6号厅</option>
+
+                </select>
+            </li>
+            <!--购票按钮-->
+            <li>
+                <a href="登入界面/快速购票.html">快速购票</a>
+            </li>
+        </ul>
+
+        <!--热映和即将上映影片-->
+        <div>
+        <div class="item active">
+            <div class="section">
+                <div class="title">
+                    <span class="bgRed">正在热映</span>
+                    <span>即将上映</span>
+                    <a class="a2" href="#">查看全部</a>
+                </div>
+                <!-- 正在热映列表组 -->
+                <ul class="list">
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/2018.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/爱的锦囊妙计.jpg" alt="爱的锦囊妙计"/>
+                                <div class="overlay">剧情介绍：　　一名广告主管和一名时尚设计师博主都不相信爱情，于是他们立下赌约，要用不寻常的策略让对方陷入情网...</div>
+                            </div>
+                        </a>
+                        <p>爱的锦囊妙计</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/56947.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/对你的想象.jpg" alt="对你的想象"/>
+                                <div class="overlay">剧情介绍：　　本片根据Robinne Lee同名小说改编。由《大病》《塔米·菲的眼睛》导演迈克尔·肖沃特执导。40岁的离异母亲苏菲（安妮·海瑟薇饰），她的丈夫出轨年轻姑娘而抛弃了母女俩，也取消了原计划带着女儿去科切拉音乐节之旅。苏菲收拾好心情，整装出发，带着女儿去了科切拉，并见到了女儿最喜欢的乐队——August Moon，而这支乐队是目前全球最火的乐队，主唱海耶斯·坎贝尔（尼古拉斯·加利齐纳饰）聪明、成功、自信、时髦，对女孩子有立竿见影的吸引力。而且只有24岁，而俩人竟然走到了要一起。　　他们从一系列秘密约会开始，很快就演变成一段真切并且充满激情的关系。这是一次跨越各大洲的旅程，苏菲和海耶斯在彼此的世界里穿梭：从体育场之旅到国际艺术博览会，再到巴黎和迈阿密的僻静之所。对于苏菲来说，这是一场自我恢复，也是一次对幸福和爱情的重新发现.</div>
+                            </div>
+                        </a>
+                        <p>对你的想象</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/56814.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/我们一起摇太阳.jpg" alt="我们一起摇太阳"/>
+                                <div class="overlay">剧情介绍：　　当“没头脑”吕途（彭昱畅 饰）遇上“不高兴”凌敏（李庚希 饰），两个身患重症却性格迥异的年轻人，因为“生命接力”的约定，阴差阳错地踏上了一段充满爱与力量的治愈之旅。</div>
+                            </div>
+                        </a>
+                        <p>我们一起摇太阳</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/41320.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/鬼来电.jpg" alt="鬼来电"/>
+                                <div class="overlay">剧情介绍：　　毕业旅行本是很快乐的事，可明日香（堀北真希饰）却留在被其他同学遗忘的角落。她在学校被同学们欺凌，同伴Pam还因无法忍受欺凌而上吊自杀了。Pam的怨气积聚，让明日香为她报复。/div>
+                            </div>
+                        </a>
+                        <p>鬼来电</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/31027.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/遇见你.jpg" alt="遇见你"/>
+                                <div class="overlay">剧情介绍：　　女孩在最美好的青春里，遇到了一个想要勇敢去爱的男孩。　　18岁那年，被同学嘲笑为“垃圾桶”的余骄阳遇见了让她一见钟情的转校生周灿。她帮助周灿实现梦想，将周灿视为命中注定</div>
+                            </div>
+                        </a>
+                        <p>遇见你</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57346.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/狐王传说.jpg" alt="狐王传说"/>
+                                <div class="overlay">剧情介绍：　　胡丽在自己新书《狐王传说》的发布会上和前男友王梓以及现男友孙雷一起穿到了书中的世界。在那个魔幻的故事里,王梓成了狐王,一统狐族,拥有至高的权势,他一心想让胡丽做自己的狐王妃,</div>
+                            </div>
+                        </a>
+                        <p>狐王传说</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya4.com/v/54835.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/幸运的我们.jpg" alt="幸运的我们"/>
+                                <div class="overlay">剧情介绍：　　韩国KBS电视台日日剧《幸运的我们》讲述了跌落神坛的明星医师，和莽撞的菜鸟医师之间双向治愈的故事。</div>
+                            </div>
+                        </a>
+                        <p>幸运的我们</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57472.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/疯狂星期一.jpg" alt="疯狂星期一"/>
+                                <div class="overlay">剧情介绍：　　一家小公司的职员们发现自己被困在办公室里永无尽头的一周循环之内，为了让关键人物部长意识到这一事实并打破循环，他们要使出浑身解数。</div>
+                            </div>
+                        </a>
+                        <p>疯狂星期一</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57199.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/方法之书.jpg" alt="方法之书"/>
+                                <div class="overlay">剧情介绍：　　马克，一个有着躁郁症和偏执型人格障碍的电影人，不能容忍制片人对目前的项目吹毛求疵。在剪辑员的帮助下，他偷偷把拍摄素材送到了姨妈家，设法完成他心中的电影。然而，成片时间仍被不断推..</div>
+                            </div>
+                        </a>
+                        <p>方法之书</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/44120.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/银河护卫队.jpg" alt="银河护卫队"/>
+                                <div class="overlay">影片承接前作，银河护卫队成员们已经在虚无之地上安顿了下来。然而，由于火箭浣熊（布莱德利·库珀 Bradley Cooper 配音）的动荡往事的侵扰，他们的生活很快被打破。“星爵...</div>
+                            </div>
+                        </a>
+                        <p>银河护卫队</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/56958.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/末路狂花钱.jpg" alt="末路狂花钱"/>
+                                <div class="overlay">剧情介绍：　　注意看，眼前这个男人叫贾有为（贾冰 饰），“省钱门”当之无愧代言人，抠门赛道遥遥领先的天之骄子！他抠搜半生不敢玩命花钱，没成想正值壮年罹患绝症是没命花钱！眼看生命只剩十天，百万...</div>
+                            </div>
+                        </a>
+                        <p>末路狂花钱</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57443.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/冬季战争.jpg" alt="冬季战争"/>
+                                <div class="overlay">剧情介绍：　　1945年1月，法国第一伞兵团与美国部队一起在法国解放阿尔萨斯。一支盟军小部队必须坚守热不桑村，实际上再过几天，就是著名的"阿尔萨斯斯大林格勒战役"。他们必须在寒冷、大雪和严酷...</div>
+                            </div>
+                        </a>
+                        <p>冬季战争</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="item">
+            <div class="section">
+                <div class="title">
+                    <span class="bgRed">正在热映</span>
+                    <span>即将上映</span>
+                    <a href="#">查看全部</a>
+                </div>
+                <!-- 正在热映列表组 -->
+                <ul class="list">
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/34110.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/万里归途.jpg" alt="万里归途"/><br />
+                                <div class="overlay">剧情介绍：　　电影根据真实事件改编。　　努米亚共和国爆发战乱，前驻地外交官宗大伟（张译 饰）与外交部新人成朗（王俊凯 饰）受命前往协助撤侨。任务顺利结束，却得知还有一批被困同胞，正在白婳（殷...</div>
+                            </div>
+                        </a>
+                        <p>万里归途</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya4.com/v/57207.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/斗争人生.jpg" alt="斗争人生"/><br />
+                                <div class="overlay">剧情介绍：　　亨利·格鲁埃出生在一个资产阶级家庭，是一名抵抗运动战士、议员、无家可归者的捍卫者、革命家和偶像破坏者。从国民议会的长椅到巴黎郊区的棚户区，他坚持为最弱势群体的奔走呼号，这为他赢...</div>
+                            </div>
+                        </a>
+                        <p>斗争人生</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57407.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/草木人间.jpg" alt="草木人间"/><br />
+                                <div class="overlay">剧情介绍：　　丈夫何山凭空消失了十年后，苔花（蒋勤勤 饰）正要迈进新生，但命运却把她推向了另一重绝境——她前脚被情人（陈建斌 饰）母亲从采茶园赶走，后脚就被最亲近的好姐妹金兰骗进了传销组织“...</div>
+                            </div>
+                        </a>
+                        <p>草木人间</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57446.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/玻璃枪的爱.jpg" alt="玻璃枪的爱"/><br />
+                                <div class="overlay">剧情介绍：　　荣兆荣（任达华 饰）在黑道驰骋几十年，最终还是难逃恢恢法网入狱服刑。一晃眼十年过去，重获自由的荣兆荣发现自己积累了一辈子的家财被妻子挥霍的一干二净，不仅如此，妻子也音信全无。之.</div>
+                            </div>
+                        </a>
+                        <p>玻璃枪的爱</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/6407.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/有一点动心.jpg" alt="有一点动心"/><br />
+                                <div class="overlay">剧情介绍：　　周启文（言承旭 饰）创立的游戏公司因旗下员工直播的“渣男”言论引起全网声讨，被迫宣告破产，他带着兄弟们去找“始作俑者”相亲APP员工讨个说法。虽然打着成为对方客户，搅黄她们生意...</div>
+                            </div>
+                        </a>
+                        <p>有一点动心</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57021.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/脱单舞会.jpg" alt="脱单舞会"/><br />
+                                <div class="overlay">剧情介绍：　　The Kim O. Nguyen directed, D.J. Mausner scripted movie follows best friends Jess and Hannah (Gentry and Lester), who make a pact at 13 to have the perfect senior prom. </div>
+                            </div>
+                        </a>
+                        <p>脱单舞会</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya4.com/v/57345.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/归徒.jpg" alt="归徒"/><br />
+                                <div class="overlay">剧情介绍：　　男一借了巨款拍摄自己的电影后却无法上映,备受打击后将影片卖给业界大亨。从此自甘堕落。意外救了几个孤儿又灾祸连连,男—狠心赶未孤儿后好事不断,卖掉的电影在国际拿到大奖,假装是影片..</div>
+                            </div>
+                        </a>
+                        <p>归徒</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57449.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/假小子.jpg" alt="假小子"/><br />
+                                <div class="overlay">剧情介绍：　　男孩子气的女孩劳拉（佐伊·赫兰 Zoé Héran饰）时常被误认为是男生，而且她自己也不认同自己的女孩性别。一天，她跟随家人搬到了新的社区生活。在这里，劳拉干脆彻底把自己打扮成..</div>
+                            </div>
+                        </a>
+                        <p>假小子</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/56923.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/熊出没逆转时空.jpg" alt="熊出没逆转时空"/><br />
+                                <div class="overlay">剧情介绍：　　光头强是一名普通程序员，却常梦见陌生的森林和两头狗熊。直到他跟上司出访大客户，终于想起：他原是森林的小导游，偶然得到一次重新选择人生的机会。为了挽救旧时间线里的熊大熊二，光头强...</div>
+                            </div>
+                        </a>
+                        <p>熊出没逆转时空</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/8800.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/木乃伊.jpg" alt="木乃伊"/><br />
+                                <div class="overlay">剧情介绍：　　埃及城市哈姆纳塔是历代法老墓地，相传此处拥有法老留下的大量珍奇异宝，源源不断的人前往掘金，但却生还者寥寥。哈姆纳塔因此成为谜样的所在，获名“亡灵之城”。　　图书管理员伊芙琳（R..</div>
+                            </div>
+                        </a>
+                        <p>木乃伊</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/51887.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/月球.jpg" alt="月球"/><br />
+                                <div class="overlay">剧情介绍：　　科幻史诗《REBEL MOON》由《斯巴达 300 勇士》《超人：钢铁之躯》和《亡者之师》的导演扎克·施奈德耗时数十年打造。当宇宙最遥远的月球上的一个和平村落受到残暴的 Reg...</div>
+                            </div>
+                        </a>
+                        <p>月球</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/53483.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/热辣滚烫.jpg" alt="热辣滚烫"/><br />
+                                <div class="overlay">剧情介绍：　　乐莹（贾玲 饰）宅家多年，无所事事。大学毕业工作了一段时间后，乐莹选择脱离社会，封闭社交圈层，这是她认为与自己“和解”的最好方式。一日，在命运的几番“捉弄”下，她决定要换一种方..</div>
+                            </div>                        
+                        </a>
+                        <p>热辣滚烫</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="item">
+            <div class="section">
+                <div class="title">
+                    <span class="bgRed">正在热映</span>
+                    <span>即将上映</span>
+                    <a href="#">查看全部</a>
+                </div>
+                <!-- 正在热映列表组 -->
+                <ul class="list">
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/22963.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/哈尔的移动城堡.jpg" alt="哈尔的移动城堡"/><br />
+                                <div class="overlay">剧情介绍：继母因无力负担生活，将苏菲和她的两个妹妹都送到了制帽店去当学徒。两个妹妹很快先后就离开了制帽店去追寻各自的梦想，只有苏菲坚持了下来。一天，小镇旁边来了一座移动堡垒，传说堡垒的主人哈...</div>
+                            </div>
+                        </a>
+                        <p>哈尔的移动城堡</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57476.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/野兽.jpg" alt="野兽"/><br />
+                                <div class="overlay">剧情介绍：　　讲述在一切情感都成为危险的未来，女主为了净化自己的DNA，去除体内所有的强烈情感，进入了一台机器，穿梭于自己的前生今世（1910年、2014年、2044年），在穿越过程中她邂逅..</div>
+                            </div>
+                        </a>
+                        <p>野兽</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/8531.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/雷霆再起.jpg" alt="雷霆再起"/><br />
+                                <div class="overlay">剧情介绍：　　在对抗外星人的入侵并成功封住虫洞的十年后，人类从废墟中站起来。他们忘记了恐惧，纵情狂欢，其中便包括斯特克·潘特考斯特将军的儿子杰克（约翰·博耶加 John Boyega 饰）。...</div>
+                            </div>                        
+                        </a>
+                        <p>雷霆再起</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/20524.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/变形金刚1.jpg" alt="变形金刚1"/><br />
+                                <div class="overlay">剧情介绍：　　“霸天虎”的先遣部队旋风和毒蝎袭击了美军位于卡塔尔的军事基地，与此同时，路障帮助他的搭档迷乱潜入了美国总统的座机空中一号，通过电脑获悉，要想找到威震天就必须找到维特维奇家族的那..</div>
+                            </div>
+                        </a>
+                        <p>变形金刚1</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/54757.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/沙丘.jpg" alt="沙丘"/><br />
+                                <div class="overlay">剧情介绍：　　《沙丘2》承接第一部剧情，讲述保罗·厄崔迪（提莫西·查拉梅 Timothée Chalamet 饰）被帕迪沙皇帝和哈克南人联手灭族后，在厄拉科斯星球遇到弗雷曼女战士契妮（赞达亚..</div>
+                            </div>
+                        </a>
+                        <p>沙丘2</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/6828.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/香蕉天堂.jpg" alt="香蕉天堂"/><br />
+                                <div class="overlay">剧情介绍：　　《香蕉天堂》由王童导演，王小棣编剧，于1989年问世, 正是两岸开放单向探亲刚开始的阶段。故事的叙述是透过我们现在称之为大陆来台“老兵”的视角来进行的。电影的第一个场景，是19...s</div>
+                            </div>
+                        </a>
+                        <p>香蕉天堂</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/10782.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/羞羞的铁拳.jpg" alt="羞羞的铁拳"/><br />
+                                <div class="overlay">剧情介绍：　　堕落沉沦的MMA选手艾迪生（艾伦 饰）依靠打假拳度日，早已忘记昔日的雄心壮志。某次他和假拳掮客马东（田雨 饰）商议打假赛的时候，不慎被正义感爆棚的体育记者马小（马丽 饰）听到并...</div>
+                            </div>
+                        </a>
+                        <p>羞羞的铁拳</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/53476.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/飞驰人生2.jpg" alt="飞驰人生2"/><br />
+                                <div class="overlay">剧情介绍：　　堕落沉沦的MMA选手艾迪生（艾伦 饰）依靠打假拳度日，早已忘记昔日的雄心壮志。某次他和假拳掮客马东（田雨 饰）商议打假赛的时候，不慎被正义感爆棚的体育记者马小（马丽 饰）听到并...</div>
+                            </div>
+                        </a>
+                        <p>飞驰人生2</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/32720.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/自己去看.jpg" alt="自己去看"/><br />
+                                <div class="overlay">剧情介绍：　　这是一部很特殊的战争题材电影，它真实地描写了德占区人民的悲惨遭遇和场面，以及人们面对突如其来的灾难的恐惧，反映了战争的真实面目。它既不同于《斯大林格勒保卫战》、《攻占柏林》这些..</div>
+                            </div>
+                        </a>
+                        <p>自己去看</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/27651.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/游戏之夜.jpg" alt="游戏之夜"/><br />
+                                <div class="overlay">剧情介绍：　　马克思(贝特曼饰)的兄弟布鲁克斯(钱德勒饰)筹划“谋杀”派对后却遭绑架，马克思、安妮(麦克亚当斯饰)以为这只是一场游戏，但显然他们已陷入困境。...</div>
+                            </div>
+                        </a>
+                        <p>游戏之夜</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57478.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/最后的美洲豹.jpg" alt="最后的美洲豹"/><br />
+                                <div class="overlay">剧情介绍：　　Grown up in the Amazon rainforest, Autumn lives with Hope, the cute baby jaguar she adopted. However, a circumstance forces Autumn to return to New York. </div>
+                            </div>
+                        </a>
+                        <p>最后的美洲豹</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/23523.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/这个杀手不太冷.jpg" alt="这个杀手不太冷"/><br />
+                                <div class="overlay">剧情介绍：里昂（让·雷诺饰）是名孤独的职业杀手，受人雇佣。一天，邻居家小姑娘马蒂尔达（纳塔丽·波特曼饰)敲开他的房门，要求在他那里暂避杀身之祸。原来邻居家的主人是警方缉毒组的眼线，只因贪污了...</div>
+                            </div>
+                        <p>这个杀手不太冷</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="item">
+            <div class="section">
+                <div class="title">
+                    <span class="bgRed">正在热映</span>
+                    <span>即将上映</span>
+                    <a href="#">查看全部</a>
+                </div>
+                <!-- 正在热映列表组 -->
+                <ul class="list">
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57467.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/动作巨星.jpg" alt="动作巨星"/><br />
+                                <div class="overlay">剧情介绍：　　Hart plans an innovative action film with unscripted, unexpected scenes to cement his legacy as the greatest. However, a blind spot leads him to fall victim to a vengeful plot from his past.</div>
+                            </div>
+                        </a>
+                        <p>动作巨星</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/19430.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/叉手.jpg" alt="叉手"/><br />
+                                <div class="overlay">剧情介绍：　　本功夫片拍于1981年,为张彻导演,倪匡编剧.故事描述,「叉手」为江湖上新崛起之组织,专杀江湖豪侠,彼等行事,均带面具,故彼等究为何人,无人知晓.「八臂哪咤」齐山云(江生)会同...</div>
+                            </div>
+                        </a>
+                        <p>叉手</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/19430.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/特技狂人.jpg" alt="特技狂人"/><br />
+                                <div class="overlay">剧情介绍：　　本功夫片拍于1981年,为张彻导演,倪匡编剧.故事描述,「叉手」为江湖上新崛起之组织,专杀江湖豪侠,彼等行事,均带面具,故彼等究为何人,无人知晓.「八臂哪咤」齐山云(江生)会同..</div>
+                            </div>
+                        </a>
+                        <p>特技狂人</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/49926.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/我的野兽.jpg" alt="我的野兽"/><br />
+                                <div class="overlay">剧情介绍：　　Heather, an outcast teenage goalie in a small northern town, falls for newcomer Jonny, an alluring but tormented figure skater. As their relationship deepens, </div>
+                            </div>
+                        </a>
+                        <p>我的野兽</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57337.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/凶兆前传.jpg" alt="凶兆前传"/><br />
+                                <div class="overlay">剧情介绍：　　一名年轻美国女子被派往罗马、展开服侍教会的人生，却接触到了令她质疑信仰的黑暗力量，并揭露恶魔转世的可怕阴谋。</div>
+                            </div>
+                        </a>
+                        <p>凶兆前传</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/11545.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/玩命剧组.jpg" alt="玩命剧组"/><br />
+                                <div class="overlay">剧情介绍：　　有三个青春靓丽的女孩，他们是当下所流行的女主播大军中的一员。每日里你侬我侬，虚情假意，和电脑显示屏另一面的陌生人甜言蜜语，期间孕育了多少杀机而全然无知。</div>
+                            </div>                        
+                        </a>
+                        <p>玩命剧组</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57473.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/巴黎深渊.jpg" alt="巴黎深渊"/><br />
+                                <div class="overlay">剧情介绍：　　2024年夏天，巴黎首次在塞纳河畔举办世界铁人三项锦标赛。才华横溢的科学家索菲亚从年轻的环保活动家米卡那里得知，一条大鲨鱼正在塞纳河深处游动。为了避免市中心发生血腥屠杀，</div>
+                            </div>
+                        </a>
+                        <p>巴黎深渊</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya4.com/v/57341.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/致命塔罗.jpg" alt="致命塔罗"/><br />
+                                <div class="overlay">剧情介绍：　　一群青年肆无忌惮地违反了塔罗牌的规则，释放了牌中的可怕恶灵，他们一个接一个地面对命运的审判，使得最终陷入了一场与死亡的赛跑。</div>
+                            </div>
+                        </a>
+                        <p>致命塔罗</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/2004.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/完美搭配.jpg" alt="完美搭配"/><br />
+                                <div class="overlay">剧情介绍：　　一位美食和美酒评论家，在不小心参观了一家她过去经营的酒厂时撞到了她的头并失去了记忆，该酒厂由单身父亲迈克尔拥有和经营。</div>
+                            </div>
+                        </a>
+                        <p>完美搭配</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/51712.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/冠军.jpg" alt="冠军"/><br />
+                                <div class="overlay">名前小联盟篮球教练被法院命令去管理一支由智力障碍球员组成的球队。他很快意识到，只要齐心协力，这个团队能比他们想象的走得更远。</div>
+                            </div>                        
+                        </a>
+                        <p>冠军</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/57418.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/还是觉得你最好.jpg" alt="还是觉得你最好"/><br />
+                                <div class="overlay">剧情介绍：　　当两对恐婚男女阴差阳错决定结婚，婚礼现场大瓜频出，秒变八卦修罗场。面对婚姻这场爱的冒险局，他们会选择勇敢踏入还是转身离开？</div>
+                            </div>
+                        </a>
+                        <p>还是觉得你最好2</p>
+                    </li>
+                    <li>
+                        <a href="https://www.qiqiyya3.com/v/1006.html">
+                            <div class="image-container">
+                                <img src="jpg/电影图片/移居者.jpg" alt="移居者"/><br />
+                                <div class="overlay">剧情介绍：　　影片由怀特·洛克菲勒执导，故事讲述Ilsa是一个来自地球的难民，她和丈夫、女儿一起定居在火星边远的恶劣干旱地带。尽管一家人只有一些庄稼和一个家用机器人，他们还是对美好的生活抱有...展</div>
+                            </div>
+                        </a>
+                        <p>移居者</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        </div>
+
+        <!-- 侧边栏 -->
+        <div class="side">
+        <!-- 影城活动 -->
+            <div class="topic">
+        <span>影城活动</span>
+        <a href="#">更多&lt;&lt;</a>
+        <p>
+        <img src="jpg/images/首页大图.png" width="250" height="100">
+        </p>
+        <ul class="detail">
+            <li>
+                <img src="jpg/电影图片/雷霆再起.jpg" width="72" height="45">
+                <p>雷霆再起<br />18日与你约</p>
+            </li>
+            <li>
+                <img src="jpg/电影图片/间谍过家家.jpg" width="72" height="45">
+                <p>间谍过家家<br />28日与你约</p>
+            </li>
+            <li>
+                <img src="jpg/images/宣传.png" width="72" height="45">
+                <p>无敌舰队<br />22日与你约</p>
+            </li>
+        </ul>	
+            </div>
+            <!--服务公告-->
+            <div class="topic">
+            <span>热榜</span>
+            <a href="">更多>></a>
+            </div>
+            <!--新闻列表-->
+            <ul class="noticelist">
+            <li>
+                <img src="./jpg/ico.gif" alt="" >
+                <a href="https://www.msn.cn/zh-cn/news/other/820%E5%85%83%E8%B5%B7-%E9%BB%91%E7%A5%9E%E8%AF%9D-%E5%AE%9E%E4%BD%93%E7%89%88%E7%AC%AC%E4%BA%8C%E6%B3%A2%E6%8A%A2%E8%B4%AD%E4%BB%8A%E6%99%9A8%E7%82%B9%E5%BC%80%E5%90%AF-%E5%B7%B2%E8%B6%8560%E4%B8%87%E4%BA%BA%E9%A2%84%E7%BA%A6/ar-BB1olKyn?ocid=BingNewsSerp">820元起！《黑神话》实体版第二波抢购今晚8点开启：已超60万人预约</a>
+            </li>
+            <li>
+                <img src="./jpg/ico.gif" alt="" >
+                <a href="https://www.msn.cn/zh-cn/news/other/%E9%BB%91%E7%A5%9E%E8%AF%9D-%E6%82%9F%E7%A9%BA-%E9%A2%84%E5%94%AE-wegame%E4%BC%9A%E8%BF%8E%E6%9D%A5%E6%96%B0%E5%B1%80%E9%9D%A2%E5%90%97/ar-BB1ophgQ?ocid=BingNewsSerp">《黑神话：悟空》预售，WeGame会迎来新局面吗？</a>
+            </li>
+            <li>
+                <img src="./jpg/ico.gif" alt="" >
+                <a href="https://www.msn.cn/zh-cn/gaming/other/%E5%8F%88%E6%AD%A7%E8%A7%86%E4%BA%86-ign%E5%89%8D%E7%9E%BB%E5%86%8D%E8%B0%88-%E9%BB%91%E7%A5%9E%E8%AF%9D-%E6%82%9F%E7%A9%BA-%E7%9A%84%E5%A5%B3%E6%80%A7%E4%BA%89%E8%AE%AE-%E6%9A%B4%E9%9B%AA%E5%89%8D%E5%88%B6%E4%BD%9C%E4%BA%BA%E6%84%A4%E6%80%92%E5%A3%B0%E8%AE%A8/ar-BB1olRcN?ocid=msedgdhp&pc=EdgeStart&cvid=6670ff3787f4456bb76d8fa02585c6e9&ei=7">又歧视了？IGN前瞻再谈《黑神话：悟空》的女性争议，暴雪前制作人愤怒声讨！</a>
+           </li>
+            ......
+            </ul>
+            <!--品牌资讯-->
+            <div class="topic">
+            <span>品牌资讯</span>
+            <a href="">更多>></a>
+            </div>
+            <ul class="newList">
+            <li>
+                <img src="./jpg/ico.gif" alt="" >
+                <a href="#">2013韩国电影展8月开幕</a>
+            </li>
+            <li>
+                <img src="./jpg/ico.gif" alt="" >
+                <a href="#">吴宇森灾难文艺片"太平轮"手稿曝光</a>
+            </li>
+            ......
+            </ul>
+        </div>
+
+        <!-- 翻页操作 -->
+        <div>
+            <div class="fanyei">
+                <div class="main1">
+                    <button class="prev" >上一页</button>
+                    <button class="btn">1</button>
+                    <button class="btn">2</button>
+                    <button class="btn">3</button>
+                    <button class="btn">4</button>
+                    <button class="next" >下一页</button>
+            </div>
+        </div>
+        </div>
+
+        <script type="text/javascript">
+        //封装函数、图片显示的部分、传入获取到的div，和被点击的序号
+        function toggle(eles, active) {
+            for(var i = eles.length; i--;) {
+                eles[i].className = "item"; //先让所有div隐藏
+            }
+            eles[active].className = "item active";//再让被点击的序号对应的div 显示
+        }
+        //获取按键和div
+        var aBtn = document.getElementsByClassName("btn");
+        var aIem = document.getElementsByClassName("item");
+        var prev = document.getElementsByClassName("prev");
+        var next =  document.getElementsByClassName("next");
+        var nowPage = 0; //定义当前页，默认值为0；
+            
+        for(var i = aBtn.length; i--;) {
+                aBtn[i].tab = i;
+                aBtn[i].onclick=function(){
+                    toggle(aIem,this.tab);
+                    nowPage=this.tab; //被点击后，保存当前页的序号
+                }
+        }
+       //下一页
+        next[0].onclick = function () {			
+                nowPage++;					
+                nowPage %= aBtn.length;
+                toggle(aIem,nowPage);
+        }
+        //上一页
+        prev[0].onclick=function(){
+            nowPage--;
+            if(nowPage ==-1){
+                nowPage = aBtn.length-1;
+            }
+            toggle(aIem,nowPage);				
+        }
+        </script>
+        
+    </div>
+
+    <!--底部-->
+    <div id="footer">
+    <div id="help">
+                <!--帮助-->
+                <ul>
+                    <li class="title">新手上路</li>
+                    <li>注册登录问题</li>
+                    <li>用户绑定会员卡问题</li>
+                    <li>影票相关问题</li>
+                    <li>票价和支付问题</li>
+                    <li>取票凭证码问题</li>
+                </ul>
+                <ul>
+                    <li class="title">购票指南</li>
+                    <li>用户购票流程</li>
+                    <li>取票观影指南</li>
+                    <li>会员卡支付相关说明</li>
+                    <li>网银支付相关说明</li>
+                </ul>
+                <ul>
+                    <li class="title">会员权益</li>
+                    <li>会员订票权益</li>
+                    <li>会员积分权益</li>
+                    <li>入会资格</li>
+                    <li>会员卡折扣说明</li>
+                </ul>
+                <ul>
+                    <li class="title">联系我们</li>
+                    <li>手机客户端介绍与下载</li>
+                    <li>影片信息查询</li>
+                    <li>手机自助购票</li>
+                </ul>
+    </div>
+    <div class="bottom">
+        <p>
+            <a href="">公司介绍 - </a>
+            <a href="">合作咨询 - </a>
+            <a href="">友情链接 - </a>
+                <a href="">网站地图 - </a>
+            <a href="">站长统计 - </a>
+            <a href="">网站声明</a>
+            </p>
+        <p>Copyright © 2013  ed by</p>
+    </div>						
+    </div>
+</body>
+</html>

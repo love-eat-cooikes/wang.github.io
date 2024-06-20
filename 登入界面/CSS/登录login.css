@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+/*设置背景渐变效果*/
+body{
+    background-image:radial-gradient(at 0px 50px, #c0c0c0 5%, #808080 20%, #000000 60%);
+    /*background-image:radial-gradient(at 10px 50px,#6b4a6d 5%, #300639 20%, #01001f 60%); */
+    background-color: #525252;
+}
+/*大号LOGO*/
+#LOGO{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left: 53%;
+    top: 20%;
+    margin-left: -250px;
+    margin-top: -150px;
+    box-shadow: 10px 10px 40px grey;
+    border-radius: 8px;
+    background: #7bc8ff url(images/logo图标.png) right bottom/150px 80px no-repeat;
+}
+
+/*设置中间登录表单区域效果*/
+#login{
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    margin-left: -250px;
+    margin-top: -150px;
+    box-shadow: 10px 10px 40px grey;
+    border-radius: 8px;
+    background: #fdfdfd url(images/logo图标.png) right bottom/100px 60px no-repeat;
+}
+.logo{
+    width: 500px;
+    height: 40px;
+    background: #012d43;
+    font: oblique 20px/40px arial,"微软雅黑";
+    color: #f9ff46;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+/*用户登录*/
+#login form{
+    padding: 15px 0 0 80px;
+}
+#login form div{
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+}
+#login form input{
+    text-indent: 4px;
+    width: 200px;
+    height: 22px;
+}
+#login span{
+    font-size: 12px;
+    margin-left: 70px;
+    display: block;
+    color: red;
+}
+/*登录按钮*/
+#loginBtn{
+    display: block;
+    width: 200px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    font-size: 5px;
+    background-color: white;
+    color: #FFFFFF;
+    border: none;
+    margin: 15px 0 20px 70px;
+}
+#login p{
+    text-align: center;
+    font-size: 12px;
+    color: #000000;
+}
+#login p a{
+    text-decoration: none;
+}
+#login p a:hover{
+    text-decoration: underline;
+}
+
+
